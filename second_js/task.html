@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS TASK 2</title>
+	<link type="text/css" rel="stylesheet" href="style.css">	
+</head>
+<body>
+    
+    <script>
+        /* Creates an array of objects called, data */
+        const data = [
+            {
+                principal: 2500,
+                time: 1.8
+            },
+
+            {
+                principal: 1000,
+                time: 5
+            },
+
+            {
+                principal: 3000,
+                time: 1
+            },
+
+            {
+                principal: 2000,
+                time: 3
+            }
+        ];
+
+        /* The function interestCalculator */
+        const interestCalculator = Array => {
+            Array.forEach(item => {
+
+            /* initializes the new variable, rate */  
+                let rate;
+
+            /* Uses the following conditions to determine the value of rate */    
+                if (item.principal >= 2500 && item.time > 1 && item.time < 3){
+                    rate = 3;
+                } else if (item.principal >= 2500 && item.time >= 3){
+                    rate = 4;
+                } else if (item.principal < 2500 || item.time <= 1){
+                    rate = 2;
+                } else {
+                    rate = 1;
+                }
+
+                /*Calculates the interest for each individual object using the formula: (principal * rate * time) / 100 */
+                let interest = (item.principal * rate * item.time) / 100;
+
+                /* Creates and populates the array of objects called interestData */
+                let interestData = [
+                    {
+                        principal: item.principal,
+                        time: item.time,
+                        rate: rate,
+                        interest: interest
+                    }
+                ];
+                
+                /*prints the value of the array of objects called interestData to the console */
+                console.log(interestData);
+                
+                /* returns the value of interestData */
+                return interestData;
+            });
+        }
+        /* Calls the function interestCalculator */
+        interestCalculator(data);
+    </script>
+
+</body>
+</html>
